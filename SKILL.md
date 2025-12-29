@@ -16,12 +16,22 @@ Pay-per-request with USDC on Base - no API keys needed.
    pip install blockrun-llm
    ```
 
-2. Set your wallet private key:
+2. Get USDC on Base network:
+   - Bridge from Ethereum: https://bridge.base.org
+   - Or buy directly on Coinbase and withdraw to Base
+   - You need ~$1-5 USDC to start generating images
+
+3. Set your wallet private key:
    ```bash
+   # Copy .env.example to .env and add your key
+   cp .env.example .env
+
+   # Or export directly
    export BLOCKRUN_WALLET_KEY=0x...
    ```
 
-   Your wallet needs USDC on Base network for payments (~$0.05/image).
+**Network:** Base (Chain ID: 8453)
+**Payment:** USDC only
 
 ## Generate an Image
 

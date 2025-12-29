@@ -27,10 +27,26 @@ git clone https://github.com/BlockRunAI/nano-banana-blockrun.git ~/.claude/skill
    pip install blockrun-llm
    ```
 
-2. Get USDC on Base network and export your wallet key:
+2. Get USDC on Base network:
+   - Bridge from Ethereum: https://bridge.base.org
+   - Or buy directly on Coinbase and withdraw to Base
+   - You need ~$1-5 USDC to start
+
+3. Configure your wallet:
+   ```bash
+   # Copy the example env file
+   cp .env.example .env
+
+   # Edit .env and add your private key
+   BLOCKRUN_WALLET_KEY=0x...
+   ```
+
+   Or export directly:
    ```bash
    export BLOCKRUN_WALLET_KEY=0x...
    ```
+
+**Network:** Base (Chain ID: 8453) | **Payment:** USDC only
 
 ## Usage
 
