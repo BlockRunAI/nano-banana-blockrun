@@ -5,6 +5,11 @@ Generate images using Google's Nano Banana via x402 micropayments.
 """
 import sys
 import os
+from dotenv import load_dotenv
+
+# Load .env from current directory first, then skill directory as fallback
+load_dotenv(os.path.join(os.getcwd(), '.env'))
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
 
 
 def main():
@@ -44,8 +49,17 @@ def main():
 
         print()
         print("Image generated!")
+        import base64
         for i, img in enumerate(result.data):
-            print(f"  Image {i + 1}: {img.url[:80]}..." if len(img.url) > 80 else f"  Image {i + 1}: {img.url}")
+            # Save base64 images to current working directory
+            if img.url.startswith('data:image/png;base64,'):
+                data = img.url.replace('data:image/png;base64,', '')
+                filename = os.path.join(os.getcwd(), f"generated_image_{i+1}.png")
+                with open(filename, 'wb') as f:
+                    f.write(base64.b64decode(data))
+                print(f"  Image {i + 1}: Saved to {filename}")
+            else:
+                print(f"  Image {i + 1}: {img.url}")
             if img.revised_prompt:
                 print(f"  Revised prompt: {img.revised_prompt}")
     except Exception as e:

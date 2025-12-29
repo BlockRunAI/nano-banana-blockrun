@@ -71,6 +71,14 @@ python scripts/generate.py "a cute cat wearing a space helmet"
 python scripts/generate.py "a futuristic city" google/nano-banana-pro
 ```
 
+## Example
+
+Here's an image generated with this skill:
+
+![Example generated image](example_image.png)
+
+**Prompt:** "An ethereal library floating in a digital void, where glowing streams of code flow like rivers between ancient bookshelves, crystalline neural networks branching overhead like constellations, warm amber light mixing with cool blue data particles"
+
 ## Pricing
 
 | Model | Price | Resolution |
