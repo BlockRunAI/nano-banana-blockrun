@@ -73,11 +73,11 @@ python scripts/generate.py "a futuristic city" google/nano-banana-pro
 
 ## Example
 
-Here's an image generated with this skill:
+Here's an image generated with this skill. When asked to "imagine your current thoughts and create a prompt", Claude Code generated:
 
 ![Example generated image](example_image.png)
 
-**Prompt:** "An ethereal library floating in a digital void, where glowing streams of code flow like rivers between ancient bookshelves, crystalline neural networks branching overhead like constellations, warm amber light mixing with cool blue data particles"
+**Claude's prompt:** "An ethereal library floating in a digital void, where glowing streams of code flow like rivers between ancient bookshelves, crystalline neural networks branching overhead like constellations, warm amber light mixing with cool blue data particles"
 
 ## Pricing
 
