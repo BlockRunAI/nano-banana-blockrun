@@ -1,0 +1,62 @@
+---
+name: nano-banana-blockrun
+description: "Nano Banana by BlockRun - Generate images using Google's Nano Banana via x402 micropayments. Use when the user asks to generate, create, draw, or make images. Pay-per-request via USDC on Base, no API keys needed."
+allowed-tools: Read, Bash(python:*), Bash(python3:*), Bash(pip:*), Bash(pip3:*)
+---
+
+# Nano Banana by BlockRun
+
+Generate images using Google's Nano Banana model via BlockRun's x402 API.
+Pay-per-request with USDC on Base - no API keys needed.
+
+## Setup (one-time)
+
+1. Install the SDK:
+   ```bash
+   pip install blockrun-llm
+   ```
+
+2. Set your wallet private key:
+   ```bash
+   export BLOCKRUN_WALLET_KEY=0x...
+   ```
+
+   Your wallet needs USDC on Base network for payments (~$0.05/image).
+
+## Generate an Image
+
+```python
+from blockrun_llm import ImageClient
+
+client = ImageClient()
+result = client.generate("a cute cat wearing a space helmet")
+print(result.data[0].url)
+```
+
+Or use the script:
+```bash
+python scripts/generate.py "a cute cat wearing a space helmet"
+```
+
+## Available Models
+
+| Model | Price | Resolution |
+|-------|-------|------------|
+| `google/nano-banana` | ~$0.05 | 1024x1024 |
+| `google/nano-banana-pro` | ~$0.10 | up to 4K |
+| `openai/dall-e-3` | ~$0.04-0.12 | 1024x1024 to 1792x1024 |
+
+## How It Works
+
+1. Your request goes to BlockRun API (https://blockrun.ai)
+2. BlockRun returns HTTP 402 Payment Required
+3. SDK signs USDC payment on Base chain
+4. Image is generated and returned
+
+No API keys, no subscriptions - just crypto micropayments.
+
+## Links
+
+- [BlockRun](https://blockrun.ai)
+- [x402 Protocol](https://x402.org)
+- [PyPI Package](https://pypi.org/project/blockrun-llm/)
