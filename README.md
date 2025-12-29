@@ -83,10 +83,20 @@ python scripts/generate.py "a futuristic city" google/nano-banana-pro
 
 1. Claude calls the BlockRun API with your prompt
 2. BlockRun returns HTTP 402 (Payment Required)
-3. SDK signs a USDC payment on Base chain
-4. Image is generated and returned
+3. SDK signs a USDC payment on Base chain (LOCAL signing)
+4. Only the signature is sent - your key never leaves your machine
+5. Image is generated and returned
 
 No API keys, no subscriptions - just crypto micropayments via the [x402 protocol](https://x402.org).
+
+## Security
+
+**Your private key NEVER leaves your machine.**
+
+- Key is only used for LOCAL EIP-712 signing
+- Only the signature is sent in the `PAYMENT-SIGNATURE` header
+- BlockRun verifies signatures on-chain via Coinbase CDP facilitator
+- Same security model as signing any MetaMask/wallet transaction
 
 ## Links
 

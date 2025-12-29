@@ -60,10 +60,18 @@ python scripts/generate.py "a cute cat wearing a space helmet"
 
 1. Your request goes to BlockRun API (https://blockrun.ai)
 2. BlockRun returns HTTP 402 Payment Required
-3. SDK signs USDC payment on Base chain
-4. Image is generated and returned
+3. SDK signs USDC payment locally (key never leaves your machine)
+4. Only the signature is sent to server
+5. Image is generated and returned
 
 No API keys, no subscriptions - just crypto micropayments.
+
+## Security
+
+**Your private key NEVER leaves your machine.**
+
+The SDK uses EIP-712 typed data signing locally. Only the signature is transmitted.
+Same security as signing any MetaMask transaction.
 
 ## Links
 
