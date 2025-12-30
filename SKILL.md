@@ -46,6 +46,12 @@ print(result.data[0].url)
 Or use the script:
 ```bash
 python scripts/generate.py "a cute cat wearing a space helmet"
+
+# Save to a specific directory
+python scripts/generate.py "a cute cat" "google/nano-banana" "/path/to/save"
+
+# Or use OUTPUT_DIR environment variable
+OUTPUT_DIR=/path/to/save python scripts/generate.py "a cute cat"
 ```
 
 ## Available Models
